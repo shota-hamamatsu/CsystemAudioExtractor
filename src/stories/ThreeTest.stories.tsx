@@ -1,21 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Scene } from "../context/Scene";
-import { Mesh } from "../Mesh";
+import { useCallback, } from "react";
 
 const meta = {
-  title: "Scene",
-  component: Scene,
-} satisfies Meta<typeof Scene>;
+  title: "CsystemAudioExtractor",
+} satisfies Meta;
 export default meta;
 
-type Story = StoryObj<typeof Scene>;
+type Story = StoryObj;
+
+const PrimaryComponent: React.FC = () => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) console.error('doesnt exist files');
+
+  }, [])
+  return (
+    <input type='file' onChange={handleChange} />
+  )
+}
 
 export const Test: Story = {
-  render: () => {
-    return (
-      <Scene>
-        <Mesh />
-      </Scene>
-    );
-  },
+  render: () => <PrimaryComponent />,
 };
