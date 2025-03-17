@@ -1,3 +1,4 @@
+// @see https://github.com/crskycode/GARbro/blob/master/ArcFormats/Cyberworks/AudioTINK.cs
 export class CSystemAudio {
     private data: DataView;
     private offset: number = 0;
